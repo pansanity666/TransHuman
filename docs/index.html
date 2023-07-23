@@ -133,11 +133,11 @@
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
         <!-- Your video here -->
-        <source src="static/videos/demo.mp4"
+        <source src="static/videos/demo_dyn.mp4"
         type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        More video demos are coming. 
+        Dynamic rendering results on ZJU-MoCap given 3 reference views from unseen poses/identities. With <b>no test-time finetuning</b>, our TransHuman achieves significantly better clarity with detailed textures and  brightness consistency.
       </h2>
     </div>
   </div>
@@ -150,12 +150,23 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
+        <h2 class="title is-3">Why TransHuman?</h2>
+
+       
+
         <div class="content has-text-justified">
           <p>
-          We present TransHuman for the generalizable neural human rendering task. At the core of TransHuman is a canonically optimized human representation with global relationships between human parts captured by transformers which shows superior generalization ability compared with previous methods. 
+            Previous methods have primarily used a SparseConvNet (SPC)-based human representation to process the painted SMPL. However, such SPC-based representation <b>i) optimizes under the volatile observation space</b> which leads to the pose-misalignment between training and inference stages, and <b>ii) lacks the global relationships among human parts</b> that is critical for handling the incomplete painted SMPL. 
+            <br> <br>
+            Tackling these issues, we present a brand-new framework named TransHuman, which learns the painted SMPL under the <b>canonical space</b> and <b>captures the global relationships between human parts with transformers</b>. 
           </p>
         </div>
+
+        <img src="static/images/idea_illustration.png" alt="MY ALT TEXT"/>
+        <!-- <h2 class="subtitle has-text-centered">
+          Comparisons between existing SPC-based and our transformer-based human representations.
+        </h2> -->
+
       </div>
     </div>
   </div>
@@ -169,19 +180,23 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Methd Overview</h2>
+
         <div class="content has-text-justified">
           <p>
-          In this paper, we focus on the task of generalizable neural human rendering which trains conditional Neural Radiance Fields (NeRF) from multi-view videos of different characters. 
-          To handle the dynamic human motion, previous methods have primarily used a SparseConvNet (SPC)-based human representation to process the painted SMPL. 
-          However, such SPC-based representation i) optimizes under the volatile observation space  which leads to the pose-misalignment between training and inference stages, and ii) lacks the global relationships among human parts that is critical for handling the incomplete painted SMPL. 
-          
-          Tackling these issues, we present a brand-new framework named TransHuman, which learns the painted SMPL under the canonical space and captures the global relationships between human parts with transformers. 
-          
-          Specifically, TransHuman is mainly composed of Transformer-based Human Encoding (TransHE), Deformable Partial Radiance Fields (DPaRF), and Fine-grained Detail Integration (FDI). TransHE first processes the painted SMPL under the canonical space via transformers for capturing the global relationships between human parts. Then, 
-          DPaRF binds each output token with a deformable radiance field for encoding the query point under the observation space. Finally, the FDI is employed to further integrate fine-grained information from reference images.  Extensive experiments on ZJU-MoCap and H36M show that our TransHuman achieves a significantly new state-of-the-art performance with high efficiency.
+            TransHuman is mainly composed of Transformer-based Human Encoding (<b>TransHE</b>), Deformable Partial Radiance Fields (<b>DPaRF</b>),  and Fine-grained Detail Integration (<b>FDI</b>). 
+            
+            <br><br>
+            <b>TransHE</b> first builds a pipeline for capturing the global relationships between human parts via transformers under the canonical space. 
+            <br><br>
+            Then, <b>DPaRF</b> deforms the coordinate system from the canonical back to the observation space and encodes a query point as an aggregation of coordinates and condition features. 
+            <br><br>
+            Finally, <b>FDI</b> further gathers the fine-grained information of the observation space from the pixel-aligned appearance feature under the guidance of human representation.
           </p>
         </div>
+
+        <img src="static/images/method_overview.jpg" alt="MY ALT TEXT"/>
+
       </div>
     </div>
   </div>
@@ -292,8 +307,6 @@
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
-            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
         </div>
