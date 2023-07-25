@@ -141,3 +141,9 @@ body {
   display:inline-block;
   vertical-align:middle;
 }
+
+.wrapper{
+  display:flex;
+  justify-content:center;
+  width:100%
+  }
