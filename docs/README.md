@@ -2,7 +2,7 @@
 
 Official code for ICCV 2023 paper:
 
-TransHuman: A Transformer-based Human Representation for Generalizable Neural Human Rendering
+**TransHuman: A Transformer-based Human Representation for Generalizable Neural Human Rendering**
 
 [Xiao Pan](https://pansanity666.github.io/)<sup>1,2</sup>, [Zongxin Yang](https://z-x-yang.github.io/)<sup>1</sup>, [Jianxin Ma](https://jianxinma.github.io/)<sup>2</sup>, [Chang Zhou](https://scholar.google.com/citations?user=QeSoG3sAAAAJ&hl=zh-CN)<sup>2</sup>, [Yi Yang](https://scholar.google.com/citations?user=RMSuNFwAAAAJ&hl=en)<sup>1</sup>
 
