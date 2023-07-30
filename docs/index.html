@@ -131,23 +131,32 @@
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
+<!-- Paper abstract -->
+<section class="section hero is-light">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/demo_dyn.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        360° rendering results on ZJU-MoCap given 3 reference views from unseen poses/identities. With <b>no test-time optimization/finetuning</b>, our TransHuman achieves significantly better clarity with detailed textures and  brightness consistency.
-      </h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Task Overview</h2>
+
+        <div class="content has-text-justified">
+          The task of generalizable neural human rendering  trains conditional Neural Radiance Fields (NeRF) from multi-view videos of different characters, and can generalize to new performers in a single forward fashion during the inference stage.
+        </div>
+
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/videos/task_overview.mp4"
+          type="video/mp4">
+        </video>
+
+      </div>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End paper abstract -->
 
+<br>
+
+
+<br>
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -212,6 +221,48 @@
 
 <br>
 
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Novel View Synthesis on ZJU-MoCap</h2>
+
+        <div class="content has-text-justified">
+          360° rendering results on ZJU-MoCap given 3 reference views from unseen poses/identities. With <b>no test-time optimization/finetuning</b>, our TransHuman achieves significantly better clarity with detailed textures and  brightness consistency compared with NHP [18] which employs a SPC-based human representation.
+        </div>
+        
+         <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <!-- Your video here -->
+          <source src="static/videos/demo_dyn.mp4"
+          type="video/mp4">
+        </video>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/videos/demo_dyn.mp4"
+          type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+        </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+
+<br>
+
+
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -219,9 +270,76 @@
         <h2 class="title is-3">Mesh Reconstruction on ZJU-MoCap</h2>
 
         <div class="content has-text-justified">
-          Though 3D surface reconstruction is not our main goal, our method achieves more complete geometry with details like wrinkles compared with NHP [18] which employs a SPC-based human representation.
+          Though 3D surface reconstruction is not our main goal, our method achieves more complete geometry with details like wrinkles.
         </div>
         
+        <div id="results-carousel" class="carousel results-carousel">
+          <!-- <div class="item"> -->
+           
+                   <div class="item">
+                     <div class="center_wrapper" >
+                     <img src="static/images/mesh_315.gif" alt="MY ALT TEXT"/>
+                     </div>
+                     <!-- <h2 class="subtitle has-text-centered">
+                       Second image description.
+                     </h2> -->
+                   </div>
+   
+                   <div class="item">
+                     <div class="center_wrapper" >
+                     <img src="static/images/mesh_313.gif" alt="MY ALT TEXT"/>
+                     </div>
+                     <!-- <h2 class="subtitle has-text-centered">
+                       First image description.
+                     </h2> -->
+                   </div>
+   
+                 <div class="item">
+                   <div class="center_wrapper" >
+                   <img src="static/images/mesh_386.gif" alt="MY ALT TEXT"/>
+                   </div>
+                   <!-- <h2 class="subtitle has-text-centered">
+                     Second image description.
+                   </h2> -->
+                 </div>
+   
+                 <div class="item">
+                   <div class="center_wrapper" >
+                     <img src="static/images/mesh_377.gif" alt="MY ALT TEXT"/>
+                   </div>
+                   <!-- <h2 class="subtitle has-text-centered">
+                     Second image description.
+                   </h2> -->
+                 </div>
+   
+                 <div class="item">
+                   <div class="center_wrapper" >
+                     <img src="static/images/mesh_392.gif" alt="MY ALT TEXT"/>
+                   </div>
+                   <!-- <h2 class="subtitle has-text-centered">
+                     Second image description.
+                   </h2> -->
+                 </div>
+   
+                 <div class="item">
+                   <div class="center_wrapper" >
+                     <img src="static/images/mesh_390.gif" alt="MY ALT TEXT"/>
+                   </div>
+                   <!-- <h2 class="subtitle has-text-centered">
+                     Second image description.
+                   </h2> -->
+                 </div>
+                 
+                 <div class="item">
+                   <div class="center_wrapper" >
+                     <img src="static/images/mesh_396.gif" alt="MY ALT TEXT"/>
+                   </div>
+                   <!-- <h2 class="subtitle has-text-centered">
+                     Second image description.
+                   </h2> -->
+                 </div>
+           </div>
+         </div>
       
       </div>
     </div>
@@ -229,80 +347,13 @@
 </section>
 
 
-
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <!-- <div class="item"> -->
-        
-                <div class="item">
-                  <div class="center_wrapper" >
-                  <img src="static/images/mesh_315.gif" alt="MY ALT TEXT"/>
-                  </div>
-                  <!-- <h2 class="subtitle has-text-centered">
-                    Second image description.
-                  </h2> -->
-                </div>
-
-                <div class="item">
-                  <div class="center_wrapper" >
-                  <img src="static/images/mesh_313.gif" alt="MY ALT TEXT"/>
-                  </div>
-                  <!-- <h2 class="subtitle has-text-centered">
-                    First image description.
-                  </h2> -->
-                </div>
-
-              <div class="item">
-                <div class="center_wrapper" >
-                <img src="static/images/mesh_386.gif" alt="MY ALT TEXT"/>
-                </div>
-                <!-- <h2 class="subtitle has-text-centered">
-                  Second image description.
-                </h2> -->
-              </div>
-
-              <div class="item">
-                <div class="center_wrapper" >
-                  <img src="static/images/mesh_377.gif" alt="MY ALT TEXT"/>
-                </div>
-                <!-- <h2 class="subtitle has-text-centered">
-                  Second image description.
-                </h2> -->
-              </div>
-
-              <div class="item">
-                <div class="center_wrapper" >
-                  <img src="static/images/mesh_392.gif" alt="MY ALT TEXT"/>
-                </div>
-                <!-- <h2 class="subtitle has-text-centered">
-                  Second image description.
-                </h2> -->
-              </div>
-
-              <div class="item">
-                <div class="center_wrapper" >
-                  <img src="static/images/mesh_390.gif" alt="MY ALT TEXT"/>
-                </div>
-                <!-- <h2 class="subtitle has-text-centered">
-                  Second image description.
-                </h2> -->
-              </div>
-              
-              <div class="item">
-                <div class="center_wrapper" >
-                  <img src="static/images/mesh_396.gif" alt="MY ALT TEXT"/>
-                </div>
-                <!-- <h2 class="subtitle has-text-centered">
-                  Second image description.
-                </h2> -->
-              </div>
-        </div>
-      </div>
+      
     </div>
   </div>
-</section>
+</section> -->
 
 
 <!-- Image carousel -->
