@@ -1,6 +1,9 @@
 **News**
 * `05/08/2023` The code and the pretrained model are released!
 
+
+<br><br>
+
 # TransHuman
 
 Official code for ICCV 2023 paper:
@@ -32,6 +35,9 @@ Official code for ICCV 2023 paper:
 <img src="./docs/static/images/efficiency.jpg" width="40%"/> 
 </p>
 
+
+<br><br>
+
 # Environment 
 
 We test with:
@@ -58,30 +64,35 @@ pip install -r requirements.txt
 https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
 
 ```
-### 
+
+
+<br><br>
 
 # Dataset Preparation
 
 ### ZJU-MoCap
 
-Please follow [NHP](https://github.com/YoungJoongUNC/Neural_Human_Performer/blob/main/INSTALL.md#set-up-datasets) to prepare the ZJU-MoCap dataset. 
+  Please follow [NHP](https://github.com/YoungJoongUNC/Neural_Human_Performer/blob/main/INSTALL.md#set-up-datasets) to prepare the ZJU-MoCap dataset. 
 
-The final structure of ```data``` folder should be:
-```shell
-# under TransHuman dir
--data
-  -smplx
-    - smpl
-    - ...
-  -zju_mocap
-    - CoreView_313
-    - ...
-  -zju_rasterization
-    - CoreView_313
-    - ...
-```
+  The final structure of ```data``` folder should be:
+  ```shell
+  # under TransHuman dir
+  -data
+    -smplx
+      - smpl
+      - ...
+    -zju_mocap
+      - CoreView_313
+      - ...
+    -zju_rasterization
+      - CoreView_313
+      - ...
+  ```
 
-Code for more datasets are coming.
+TODO: Code for more datasets are coming.
+
+
+<br><br>
 
 # Training
   ```shell
@@ -89,6 +100,9 @@ Code for more datasets are coming.
   ```
 
   The checkpoints will be saved under ```./data/trained_model/transhuman/$EXP_NAME ```.
+
+
+<br><br>
 
 # Evaluation 
 ```shell
@@ -105,6 +119,7 @@ sh ./scripts/test.sh 0 2100 official
 ```
 
 
+<br><br>
 
 # Visualization 
 
@@ -114,13 +129,13 @@ sh ./scripts/test.sh 0 2100 official
 <img src="./docs/static/images/313_dyn_demo.gif" width="30%"/>  <img src="./docs/static/images/390_dyn_demo.gif" width="30%"/>  <img src="./docs/static/images/396_dyn_demo.gif" width="30%"/> 
 </p>
 
-  *  Render the free-viewpoint frames via running:
+  1. Render the free-viewpoint frames via running:
       ```shell
       sh ./scripts/video.sh $GPU_NUMBER $EPOCH_NUMBER $EXP_NAME  
       ```
       The rendered frames will be saved under ```./data/perform/$EXP_NAME```. 
 
-  * Then, use ```gen_freeview_video.py``` for getting the final video. 
+  2. Use ```gen_freeview_video.py``` for getting the final video. 
 
 ### Mech reconstruction 
 
@@ -128,18 +143,19 @@ sh ./scripts/test.sh 0 2100 official
 <img src="./docs/static/images/mesh_390.gif" width="40%"/> <img src="./docs/static/images/mesh_313.gif" width="40%"/>
 </p>
 
-* Extract the mesh via running:
+1. Extract the mesh via running:
     ```shell
     sh ./script/mesh.sh $GPU_NUMBER $EPOCH_NUMBER $EXP_NAME  
     ```
     The meshes will be saved under ```./data/mesh/$EXP_NAME``` .
 
-* Then, render the meshes using ```render_mesh_dynamic.py```. The rendered frames will also be saved under ```./data/mesh/$EXP_NAME```
+2. Render the meshes using ```render_mesh_dynamic.py```. The rendered frames will also be saved under ```./data/mesh/$EXP_NAME```
 
-* Finally, use ```gen_freeview_video.py``` for getting the final video. 
+3. Use ```gen_freeview_video.py``` for getting the final video. 
 
 
 
+<br><br>
 
 # Citation 
 If you find our work useful, please kindly cite:
@@ -154,8 +170,12 @@ If you find our work useful, please kindly cite:
   }
 ```
 
+<br><br>
+
 # Contact
 For questions, feel free to contact xiaopan@zju.edu.cn.
+
+<br><br>
 
 # Acknowledgments
 This project is mainly based on the code from [NHP](https://github.com/YoungJoongUNC/Neural_Human_Performer#readme) . We also thank Sida Peng of Zhejiang University for helpful discussions on details of ZJU-MoCap dataset. 
