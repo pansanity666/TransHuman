@@ -1,0 +1,12 @@
+*.pyc
+*/data/*
+
+# Mac/OSX
+.DS_Store
+*/__MACOSX/*
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.swp
+*.pt
