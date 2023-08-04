@@ -67,7 +67,7 @@ class Evaluator:
         if not os.path.exists(result_dir):
             os.makedirs(result_dir)
 
-        human_dir = os.path.join(result_dir, str(batch['human_idx'].item()))
+        human_dir = os.path.join(result_dir, batch['human_name'][0])
         if not os.path.exists(human_dir):
             os.makedirs(human_dir)
 
