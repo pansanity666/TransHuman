@@ -1,0 +1,17 @@
+open3d
+PyYAML
+tqdm
+tensorboardX
+termcolor
+scikit-image
+opencv-contrib-python==4.6.0.66
+opencv-python==4.6.0.66
+imageio
+trimesh
+plyfile
+PyMCubes
+PyOpenGL 
+PyOpenGL_accelerate
+easydict
+chumpy
+spconv-cu113   

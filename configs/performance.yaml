@@ -1,0 +1,130 @@
+dataset_module: 'lib.datasets.light_stage.can_smpl_perform'
+dataset_path: 'lib/datasets/light_stage/can_smpl_perform.py'
+
+cross_transformer_network_module: 'lib.networks.cross_transformer'
+cross_transformer_network_path: 'lib/networks/cross_transformer.py'
+
+renderer_module: 'lib.networks.renderer.if_clight_renderer'
+renderer_path: 'lib/networks/renderer/if_clight_renderer.py'
+
+visualizer_module: 'lib.visualizers.if_nerf_perform'
+visualizer_path: 'lib/visualizers/if_nerf_perform.py'
+
+### dataset options ###
+ratio: 0.5
+H: 1024
+W: 1024
+white_bkgd: False
+N_rand: 1024 # ray number per target view  
+perturb: 1
+train_num_views: 3 # Reference view number during training stage. 
+time_steps: 1
+time_mult: [0,-20, 20] 
+dataset: zju # [zju | h36m | thu]
+data_root: 'data/zju_mocap'
+rasterize_root: 'data/zju_rasterization'
+depth_root: 'data/zju_depth_map_train'
+
+
+### MISCs ###
+task: 'transhuman'
+global_iter: 0 
+gpus: [0]
+seed: 123
+use_record: True
+log_interval: 1
+depth_map: False  # Whether to load depth_map in dataset. 
+depth_vizmap: False  # Whether to use depth_map as vizmap. 
+N_samples: 64 # sampled pts per ray  
+save_freq: 25 # checkpoint saving frequence (epoch)
+ep_iter: 500 # max iteration per epoch 
+
+use_viz_test: True
+rasterize: True
+jitter: True # Using color jitter augmentation 
+
+
+### Architecture ### 
+pretrained: True # encoder pretrained or not
+img_feat_size: 256
+embed_size: 192 # NOTE: modified, this parameter will be reset in cross_transforer.py based on the ViT type. 
+xyz_res: 10 # used in xyz embedder 
+view_res: 4 # used in view embedder
+raw_noise_std: 0 # used in pts sampling 
+
+
+### TransHuman params ### 
+# TransHE
+num_class: 300
+vit_depth: 12
+
+# DPaRF
+KNN: 7
+KNN_FREQ: 10
+KNN_DIST_ALPHA: 0.5 # temperature for softmax normalization  
+KNN_SIGMA: 0.25 # trucation threshold 
+use_truncation: False # trucate points during training 
+
+
+### ray sampling strategy ###
+# patch sampling params (default)
+patch:
+  use_patch_sampling: True  
+  sample_subject_ratio: 0.8
+  N_patches: 6
+  size: 20      # [Patch] size of patch
+
+# h36m ray sampling params 
+face_sample_ratio: 0.
+body_sample_ratio: 0.5
+
+### loss weights ###
+l2rec_weight: 1.0
+lpips_weight: 0.1 
+
+
+run_mode: 'train' # code running mode: 'train' 'test'
+flag_train: False
+train:
+    ### Training schedular 
+    batch_size: 1
+
+    ### Fast schedular, lower performance, can be used for fast validation. 
+    # lr: 7e-4
+    # epoch: 500 # total epoch 
+    # scheduler:
+    #     type: 'cosine'
+    #     warmup_epochs: 50
+    #     decay_epochs: 500 # decay end epoch 
+    #     end_lr: 1e-6 # end lr for cosine annealing 
+
+    ### Long schedular, higher performance 
+    lr: 7e-4
+    epoch: 3000 # total epoch 
+    scheduler:
+        type: 'cosine'
+        # warmup
+        warmup_epochs: 300
+        decay_epochs: 3000 # decay end epoch 
+        end_lr: 1e-6 # end lr for cosine annealing 
+
+    num_workers: 1 
+
+test:
+    sampler: 'FrameSampler'
+    batch_size: 1
+    collator: ''
+    epoch: -1 # which epoch to test
+
+    full_eval: False  # evaluation on all frames or with certain intervals, see FrameSampler class.  
+    exp_folder_name: 'debug' # evaluation saving name 
+ 
+    time_det: 20 
+    input_view: [0, 7, 15] # reference views for evaluation. 
+    target_view: [3, 5, 10, 12, 18, 20] # default test targe view for ZJU-MoCap. From NHP split. 
+    mode: 'model_x_motion_x' # [model_o_motion_o | model_o_motion_x | model_x_motion_x ] 
+
+vertices: 'new_vertices' # NHP uses the new version for 313, 315
+params: 'new_params'
+
+
