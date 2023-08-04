@@ -1,3 +1,6 @@
+**News**
+* `05/08/2023` The code and the pretrained model are released!
+
 # TransHuman
 
 Official code for ICCV 2023 paper:
@@ -11,19 +14,19 @@ Official code for ICCV 2023 paper:
 [[Project Page](https://pansanity666.github.io/TransHuman/) | [arXiv](http://arxiv.org/abs/2307.12291)]
 
 
-We present a brand-new framework named TransHuman for generalizable neural human rendering, which learns the painted SMPL under the canonical space and captures the global relationships between human parts with transformers.
+* We present a brand-new framework named TransHuman for generalizable neural human rendering, which learns the painted SMPL under the canonical space and captures the global relationships between human parts with transformers.
 
 <p float="left" align="middle">
 <img src="./docs/static/images/idea_illustration.png" width="50%"/> 
 </p>
 
-We achieve SOTA performance on various settings and datasets.
+* We achieve SOTA performance on various settings and datasets.
 
 <p float="left" align="middle">
 <img src="./docs/static/images/SOTA.jpg" width="70%"/>  
 </p>
 
-We also have better efficiency. 
+* We also have better efficiency. 
 
 <p float="left" align="middle">
 <img src="./docs/static/images/efficiency.jpg" width="40%"/> 
@@ -33,9 +36,9 @@ We also have better efficiency.
 
 We test with:
 
-    * python==3.6.12
-    * pytorch==1.10.2
-    * cuda==11.3
+* python==3.6.12
+* pytorch==1.10.2
+* cuda==11.3
 
 ```shell
 # under TransHuman dir
@@ -62,10 +65,7 @@ https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
 ### ZJU-MoCap
 
 Please follow [NHP](https://github.com/YoungJoongUNC/Neural_Human_Performer/blob/main/INSTALL.md#set-up-datasets) to prepare the ZJU-MoCap dataset. 
-<!-- 
-### H36M
 
-### THuman 1.0  -->
 The final structure of ```data``` folder should be:
 ```shell
 # under TransHuman dir
@@ -80,6 +80,8 @@ The final structure of ```data``` folder should be:
     - CoreView_313
     - ...
 ```
+
+Code for more datasets are coming.
 
 # Training
   ```shell
