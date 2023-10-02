@@ -160,14 +160,14 @@ sh ./scripts/test.sh 0 2100 official
 # Citation 
 If you find our work useful, please kindly cite:
 ```
-@misc{pan2023transhuman,
-        title={TransHuman: A Transformer-based Human Representation for Generalizable Neural Human Rendering}, 
-        author={Xiao Pan and Zongxin Yang and Jianxin Ma and Chang Zhou and Yi Yang},
-        year={2023},
-        eprint={2307.12291},
-        archivePrefix={arXiv},
-        primaryClass={cs.CV}
-  }
+@InProceedings{Pan_2023_ICCV,
+    author    = {Pan, Xiao and Yang, Zongxin and Ma, Jianxin and Zhou, Chang and Yang, Yi},
+    title     = {TransHuman: A Transformer-based Human Representation for Generalizable Neural Human Rendering},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {3544-3555}
+}
 ```
 
 <br><br>
@@ -178,7 +178,7 @@ For questions, feel free to contact xiaopan@zju.edu.cn.
 <br><br>
 
 # Acknowledgments
-This project is mainly based on the code from [NHP](https://github.com/YoungJoongUNC/Neural_Human_Performer#readme) . We also thank Sida Peng of Zhejiang University for helpful discussions on details of ZJU-MoCap dataset. 
+This project is mainly based on the code from [NHP](https://github.com/YoungJoongUNC/Neural_Human_Performer#readme) and [humannerf](https://github.com/chungyiweng/humannerf). We also thank Sida Peng of Zhejiang University for helpful discussions on details of ZJU-MoCap dataset. 
 
 
 
