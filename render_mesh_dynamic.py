@@ -73,6 +73,7 @@ human_info = {
             'CoreView_394': {'begin_i': 0, 'i_intv': 1, 'ni': 859}  # 0-300
             }
 
+
 def process_rendered(rendered_img, K_opencv, D_opencv):
 
     # input: 1024, 1024, 3
@@ -204,9 +205,26 @@ def render_depth_map(verts, faces, can_bounds, R, T, K, human, i):
     px, py = K[:,0,2:], K[:,1,2:]
     focals = torch.cat([fx, fy], dim=-1)
     prins = torch.cat([px, py], dim=-1)
-    
+
     cameras = cameras_from_opencv_projection(R, T, K, image_size=torch.tensor([[512,512]]))
 
+    def get_camera_coord_pts(T, R):
+        # center: # 1, 3 
+        # R: # 1, 3, 3
+
+        all_pts = []
+        for axis in range(3):
+            # x(0.1) -> y(0.2)-> z(0.3)
+            x_axis = R[:, :3, axis:axis+1] # [1, 3, 1] # print(torch.arange(0, 1, 0.2))
+            x_axis_pts = (x_axis * torch.arange(0,1,0.1*(axis+1))[:,None,None].to(x_axis.device)).squeeze(-1) # 5,3
+            x_axis_pts = T + x_axis_pts
+            all_pts.append(x_axis_pts)
+        
+        return torch.cat(all_pts)
+
+    all_axis_pts = get_camera_coord_pts(T, R)
+    write_point_cloud('./test.ply', torch.cat([verts.cpu(), T.cpu(), all_axis_pts.cpu()], ))
+    
     # Define the settings for rasterization and shading. Here we set the output image to be of size
     # 512x512. As we are rendering images for visualization purposes only we will set faces_per_pixel=1
     # and blur_radius=0.0. We also set bin_size and max_faces_per_bin to None which ensure that 
@@ -244,17 +262,19 @@ def render_depth_map(verts, faces, can_bounds, R, T, K, human, i):
 
     # rendering 
     images, depth = renderer(mesh)
-    # plt.figure(figsize=(10, 10))
-    # plt.imshow(images[0, ..., :3].cpu().numpy())
-    # plt.axis("off")
-    # plt.savefig('./render_vis_test.jpg')
-    # plt.cla()
+    plt.figure(figsize=(10, 10))
+    plt.imshow(images[0, ..., :3].cpu().numpy())
+    plt.axis("off")
+    plt.savefig('./render_vis_test.jpg')
+    plt.cla()
 
-    # plt.figure(figsize=(10, 10))
-    # plt.imshow(depth[0].cpu().numpy(), cmap=plt.cm.gray_r)
-    # plt.axis("off")
-    # plt.savefig('./render_depth_test.jpg')
+    plt.figure(figsize=(10, 10))
+    plt.imshow(depth[0].cpu().numpy(), cmap=plt.cm.gray_r)
+    plt.axis("off")
+    plt.savefig('./render_depth_test.jpg')
 
+    assert False
+    
     return images[..., :3], depth
 
 def load_cam(ann_file, ratio=1.0):
@@ -288,8 +308,8 @@ if __name__=='__main__':
     ratio = 0.5
 
 ### NOTE: Set this two parameters as you need. 
-human = 'CoreView_313'
-DATA_PATH = './data/mesh/official/epoch_2100/model_o_motion_x/' + human
+human = 'CoreView_387'
+DATA_PATH = './data/mesh/official/epoch_2100/model_x_motion_x/' + human
 
 # get human split info for current human 
 info = human_info[human]
@@ -318,7 +338,7 @@ for i in tqdm(range(begin_i, begin_i+ni)):
     RT = render_w2c[cam_ind]
     R_opencv, T_opencv = RT[:3, :3], RT[:3, 3:]
     K_opencv = K[0]
-
+    
     K_opencv = np.array(K_opencv)
     R_opencv = np.array(R_opencv)
     T_opencv = np.array(T_opencv) 

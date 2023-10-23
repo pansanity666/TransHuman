@@ -5,6 +5,11 @@
 
 # ===== distributed training ===== 
 
+# 1cards
+CARD=0
+PORT=${PORT:-29521}
+NGPU=1
+
 # 2cards
 # CARD=0,1
 # PORT=${PORT:-29521}
@@ -16,12 +21,12 @@
 # NGPU=4
 
 # 8cards.    
-CARD=0,1,2,3,4,5,6,7
-PORT=${PORT:-29513}
-NGPU=8
+# CARD=0,1,2,3,4,5,6,7
+# PORT=${PORT:-29513}
+# NGPU=8
 
 # experiment saving name 
-EXP_NAME="default"  
+EXP_NAME="default_1GPU"  
 
 CUDA_VISIBLE_DEVICES=$CARD  python -m torch.distributed.launch --nproc_per_node=$NGPU --master_port=$PORT train_net.py --cfg_file configs/train_or_eval.yaml \
     run_mode train  \

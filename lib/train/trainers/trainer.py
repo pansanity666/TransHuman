@@ -49,6 +49,8 @@ class Trainer(object):
                 continue
             if k == 'input_img_paths':
                 continue    
+            if k == 'human_name':
+                continue
             if isinstance(batch[k], tuple) or isinstance(batch[k], list):
                 batch[k] = [b.to(self.device) for b in batch[k]]
             else:

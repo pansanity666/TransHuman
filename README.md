@@ -1,6 +1,6 @@
 **News**
 * `05/08/2023` The code and the pretrained model are released!
-
+* `23/10/2023` We have collected recent advances in Human Avatars in this [repo](https://github.com/pansanity666/Awesome-Avatars), welcome stars!
 
 <br><br>
 
