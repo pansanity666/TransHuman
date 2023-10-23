@@ -6,9 +6,9 @@
 # ===== distributed training ===== 
 
 # 1cards
-CARD=0
-PORT=${PORT:-29521}
-NGPU=1
+# CARD=0
+# PORT=${PORT:-29521}
+# NGPU=1
 
 # 2cards
 # CARD=0,1
@@ -20,10 +20,10 @@ NGPU=1
 # PORT=${PORT:-29510}
 # NGPU=4
 
-# 8cards.    
-# CARD=0,1,2,3,4,5,6,7
-# PORT=${PORT:-29513}
-# NGPU=8
+# 8cards. 
+CARD=0,1,2,3,4,5,6,7
+PORT=${PORT:-29513}
+NGPU=8
 
 # experiment saving name 
 EXP_NAME="default_1GPU"  
