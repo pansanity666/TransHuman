@@ -292,11 +292,11 @@ class Network(nn.Module):
         
         inter_net = self._multiview_agg(human_rep, pixel_feat)
         alpha = self._alpha_forward(inter_net)
-        
+  
         ### mask based on alpha value 
         rgb = torch.zeros((alpha.shape[0], 3, alpha.shape[2])).to(alpha.device) # 1, 3, 8184
-        density_mask = (alpha > 0).squeeze() # 8184
-   
+        density_mask = (alpha > 0).flatten(0,2) # 1, 1, 8184 -> 8184 # Fix bug: https://github.com/pansanity666/TransHuman/issues/3
+ 
         if density_mask.sum() > 0:
             inter_net = inter_net[..., density_mask]
             pixel_feat = pixel_feat[..., density_mask]

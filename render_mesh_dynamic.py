@@ -273,8 +273,6 @@ def render_depth_map(verts, faces, can_bounds, R, T, K, human, i):
     plt.axis("off")
     plt.savefig('./render_depth_test.jpg')
 
-    assert False
-    
     return images[..., :3], depth
 
 def load_cam(ann_file, ratio=1.0):
